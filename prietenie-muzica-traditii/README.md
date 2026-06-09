@@ -1,18 +1,54 @@
-# React + Vite
+# Prietenie, muzică, tradiții
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Site educațional pentru parteneriatul educațional internațional **Moldova–România**, dedicat
+folclorului și obiceiurilor de iarnă. Proiectul unește două ansambluri folclorice:
 
-Currently, two official plugins are available:
+- **„Firicel de Busuioc"** — IP Gimnaziul „Dumitru Matcovschi", Chișinău, Republica Moldova
+- **„Mugurel"** — Clubul Copiilor Dorohoi, jud. Botoșani, România
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Este o pagină unică (single-page) cu navigare pe ancore: prezentare, etapele proiectului,
+galerie foto/video și echipa.
 
-## React Compiler
+## Tehnologii
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+- [Vite](https://vitejs.dev/) + [React 19](https://react.dev/)
+- [Tailwind CSS v4](https://tailwindcss.com/) (`@tailwindcss/vite`)
+- JavaScript (fără TypeScript), fără routing
 
-Note: This will impact Vite dev & build performances.
+## Comenzi
 
-## Expanding the ESLint configuration
+```bash
+npm install      # instalează dependențele
+npm run dev      # server local de dezvoltare
+npm run build    # build de producție în dist/
+npm run preview  # previzualizează build-ul de producție
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Structură
+
+```
+src/
+  App.jsx                 # înșiruie secțiunile paginii
+  components/             # Navbar, Hero, About, Gallery, Lightbox, AboutUs, Footer ...
+  data/content.js         # sursa unică de conținut (texte, imagini, etape, galerie, echipă)
+  assets/images/          # imagini optimizate (galerie, diplome, partituri, pliante)
+  index.css               # paleta de culori și decorul „folk"
+public/
+  video/                  # fișiere video și imaginile-copertă (poster)
+  favicon.svg             # logo (notă muzicală)
+```
+
+Conținutul site-ului (texte, imagini, etape, galerie) se editează în **`src/data/content.js`** —
+componentele doar randează aceste date.
+
+## Galerie
+
+Fiecare element din galerie devine un card; la click se deschide un *lightbox*. Sunt suportate:
+slider de imagini, afișare necropată pentru documente (`fit: 'contain'`), „carte digitală" cu
+player audio, conținut încorporat (iframe), video local cu imagine-copertă și butoane către
+resurse externe.
+
+## Deploy
+
+Proiectul se publică pe [Vercel](https://vercel.com/) (detectare automată Vite: build `vite build`,
+output `dist`). La fiecare push pe `main`, Vercel republică automat.
