@@ -1,0 +1,199 @@
+@import "tailwindcss";
+
+:root {
+  /* ── Paletă „Verde & bleumarin" ── */
+  --navy:      #1B3A6B;   /* bleumarin — titluri, panouri închise, butoane */
+  --navy-lt:   #29508C;
+  --green:     #4E8C3A;   /* verde frunză — borduri, divizoare, decor */
+  --green-dk:  #3A6B2A;
+  --green-lt:  #7FB85F;
+  --accent:    #E8A13A;   /* portocaliu-auriu — benzi etape, highlight */
+  --accent-lt: #F2C25A;
+  --bg:        #F3F6EE;   /* crem-verzui — fundal pagină/secțiuni */
+  --card:      #FBFDF7;   /* aproape alb — carduri */
+  --parchment: #E9F0DD;   /* verde-crem deschis — galerie/lightbox */
+  --cream:     #F4F7EC;   /* text/detalii pe fundal închis */
+  --ink:       #243018;   /* text de bază */
+  --shadow:    rgba(27,58,107,0.15);
+
+  /* ── Alias-uri compatibilitate (cod care încă folosește numele vechi) ── */
+  --red:       var(--green-dk); /* butoane / tag-uri / etichete */
+  --red-lt:    var(--green);
+  --gold:      var(--green);    /* borduri / decor */
+  --gold-lt:   var(--green-lt);
+  --brown:     var(--navy);     /* titluri / panouri */
+  --brown-lt:  #3A5A36;
+}
+
+/* Reset and base styles MUST be in @layer base so Tailwind utilities can override them */
+@layer base {
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Crimson Text', serif;
+    font-size: 18px;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+}
+
+/* ── Section container ── */
+.section-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+}
+
+/* ── Motif border (bandă populară: bleumarin + verde + portocaliu-auriu) ── */
+.motif-border {
+  width: 100%;
+  height: 28px;
+  position: relative;
+  background-image: repeating-linear-gradient(
+    90deg,
+    #1B3A6B 0px,  #1B3A6B 10px,
+    #E8A13A 10px, #E8A13A 14px,
+    #1B3A6B 14px, #1B3A6B 24px,
+    #F4F7EC 24px, #F4F7EC 28px,
+    #4E8C3A 28px, #4E8C3A 38px,
+    #E8A13A 38px, #E8A13A 42px,
+    #4E8C3A 42px, #4E8C3A 52px
+  );
+}
+.motif-border::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(
+    90deg,
+    transparent 0px, transparent 3px,
+    rgba(255,255,255,0.3) 3px, rgba(255,255,255,0.3) 4px,
+    transparent 4px, transparent 48px
+  );
+}
+
+/* ── Nav link underline hover ── */
+.nav-link {
+  color: var(--navy);
+  text-decoration: none;
+  font-family: 'Crimson Text', serif;
+  font-size: 1rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  position: relative;
+  padding-bottom: 2px;
+  transition: color 0.3s;
+}
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 100%;
+  height: 2px;
+  background: #4E8C3A;
+  transition: right 0.3s;
+}
+.nav-link:hover { color: #4E8C3A; }
+.nav-link:hover::after { right: 0; }
+
+/* ── Hero decorative overlay ── */
+.hero-bg-deco::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image:
+    radial-gradient(circle at 15% 15%, rgba(27,58,107,0.08) 0%, transparent 45%),
+    radial-gradient(circle at 85% 85%, rgba(78,140,58,0.12) 0%, transparent 45%),
+    repeating-linear-gradient(45deg, transparent, transparent 30px, rgba(27,58,107,0.03) 30px, rgba(27,58,107,0.03) 31px);
+  pointer-events: none;
+}
+
+/* ── Folk diamond strips ── */
+.folk-diamonds {
+  position: absolute; inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+.folk-diamonds::before,
+.folk-diamonds::after {
+  content: '';
+  position: absolute; left: 0; right: 0;
+  height: 44px;
+  opacity: 0.12;
+  /* Romb plin + romb gol, repetate orizontal — umplu toată lățimea la orice ecran */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='44'%3E%3Cpolygon points='20,10 32,22 20,34 8,22' fill='%231B3A6B'/%3E%3Cpolygon points='60,10 72,22 60,34 48,22' fill='none' stroke='%234E8C3A' stroke-width='2'/%3E%3C/svg%3E");
+  background-repeat: repeat-x;
+  background-position: center;
+}
+.folk-diamonds::before { top: 80px; }
+.folk-diamonds::after  { bottom: 80px; }
+
+/* ── About card decorative offset shadow ── */
+.about-card-deco { position: relative; }
+.about-card-deco::before {
+  content: '';
+  position: absolute;
+  top: 6px; left: 6px; right: -6px; bottom: -6px;
+  border: 1px solid var(--green);
+  opacity: 0.3;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* ── Quote decorative ❝ ── */
+.quote-block { position: relative; }
+.quote-block::before {
+  content: '❝';
+  position: absolute; top: -1rem; left: 50%; transform: translateX(-50%);
+  font-size: 3rem; color: var(--accent);
+  line-height: 1;
+}
+
+/* ── Team card left accent bar ── */
+.team-card-bar { position: relative; }
+.team-card-bar::before {
+  content: '';
+  position: absolute; top: 0; left: 0;
+  width: 4px; height: 100%;
+  background: var(--accent);
+}
+
+/* ── Hexagon avatar ── */
+.avatar-hex {
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+}
+
+/* ── Scroll reveal ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* ── Animations ── */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes riseUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes bounceSoft {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-8px); }
+}
+
+.hero-rise   { animation: riseUp 1s ease forwards; }
+.hero-fade-0 { opacity: 0; animation: fadeIn 1.2s ease forwards; }
+.hero-fade-1 { opacity: 0; animation: fadeIn 1s 0.3s ease forwards; }
+.hero-fade-2 { opacity: 0; animation: fadeIn 1s 0.5s ease forwards; }
+.hero-fade-3 { opacity: 0; animation: fadeIn 1s 0.8s ease forwards; }
+.hero-fade-4 { opacity: 0; animation: fadeIn 1s 1s ease forwards; }
+.hero-fade-5 { opacity: 0; animation: fadeIn 1s 1.2s ease forwards; }
+.hero-fade-6 { opacity: 0; animation: fadeIn 1s 1.4s ease forwards; }
+.hero-bounce { animation: bounceSoft 2s infinite; }

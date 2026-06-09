@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" role="img" aria-label="Notă muzicală">
+  <rect width="32" height="32" rx="7" fill="#1B3A6B"/>
+  <rect x="1.5" y="1.5" width="29" height="29" rx="5.5" fill="none" stroke="#4E8C3A" stroke-width="1.5" opacity="0.7"/>
+  <g fill="#E8A13A">
+    <rect x="14.2" y="6" width="2.1" height="17.5"/>
+    <rect x="25.1" y="4" width="2.1" height="15.5"/>
+    <polygon points="14.2,5 27.2,3 27.2,6.6 14.2,8.6"/>
+  </g>
+  <ellipse cx="11" cy="23" rx="4.3" ry="3.2" fill="#4E8C3A" transform="rotate(-22 11 23)"/>
+  <ellipse cx="21.9" cy="19.5" rx="4.3" ry="3.2" fill="#4E8C3A" transform="rotate(-22 21.9 19.5)"/>
+</svg>
