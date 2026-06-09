@@ -50,6 +50,7 @@ import conc10 from '../assets/images/concans/con10.jpg';
 import conc11 from '../assets/images/concans/con11.jpg';
 import conc12 from '../assets/images/concans/con12.jpg';
 
+import zoom from '../assets/images/galerie/zoom.png';
 export const aboutCards = [
   {
     icon: '🎯',
@@ -109,9 +110,9 @@ export const galleryItems = [
     desc: 'Cei 100 de elevi din ambele ansambluri s-au conectat prin Google Meet pentru lansarea oficială. Au fost prezentate obiectivele și planul de activitate, s-a creat posterul echipei și s-au discutat regulile de navigare sigură pe internet.',
     caption: '100 de elevi conectați din Moldova și România pentru primul pas comun',
     tag: 'Online · Lansare',
-    photoLabel: 'Sesiune video online\nGoogle Meet',
+    img: zoom,
   },
-    {
+  {
     cat: 'online',
     title: 'Tur virtual al Instituției Gimnaziului „Dumitru Matcovschi"',
     stage: 'Etapa I · Septembrie 2025',
@@ -169,10 +170,11 @@ export const galleryItems = [
     cat: 'activitati',
     title: 'Cartea Digitală — „Colinde de Crăciun"',
     stage: 'Etapa III · Noiembrie–Decembrie 2025',
-    desc: 'Carte digitală realizată de elevi, în care au adunat colinde tradiționale de Crăciun. Majoritatea elevilor au participat la crearea ei, valorificând repertoriul folcloric de iarnă.',
-    caption: 'Colinde tradiționale adunate de elevi într-o carte digitală',
+    desc: 'Carte digitală cu colinde tradiționale de Crăciun selectate din Culegerea Obiceiuri de Iarnă 1994 autor Andrei Tamazlăcaru.',
+    caption: 'Colinde tradiționale carte digitală',
     tag: 'Activitate · Digital',
     images: [part1, part2, part3, part4],
+    fit: 'contain',
     photoLabel: 'Carte digitală\nColinde de Crăciun',
   },
   {
@@ -195,6 +197,36 @@ export const galleryItems = [
     caption: 'Poze din activitatea ansamblurilor folclorice ',
     tag: 'Concurs · Online',
     images: [conc12, conc1, conc2, conc3, conc4, conc5, conc6, conc10, conc7, conc8, conc9, conc11],
+  },
+  {
+    cat: 'concurs',
+    title: 'Concursul onli-ne de totalizare a obiceiurilor și tradițiilor de iarnă „Florile Dalbe” ansamblul folcloric „Mugurel”',
+    stage: 'Etapa IV · Ianuarie–Februarie 2026',
+    desc: 'Concursul onli-ne de totalizare a obiceiurilor și tradițiilor de iarnă „Florile Dalbe” — o competiție virtuală în care elevii au prezentat cunoștințele acumulate despre obiceiurile și tradițiile de iarnă, demonstrând creativitatea și spiritul de echipă.',
+    caption: '"Concursul onli-ne de totalizare a obiceiurilor și tradițiilor de iarnă „Florile Dalbe”"',
+    tag: 'Concurs',
+    // Video local: pune fișierul în folderul `public/video/` cu EXACT acest nume.
+    // (Fișierele din public/ NU se importă sus — se referă direct prin URL, ca aici.)
+    // Pentru a schimba videoul, înlocuiește fișierul sau modifică numele de mai jos.
+    video: `${import.meta.env.BASE_URL}video/AnsamblulDorohoi.mp4`,
+    // Opțional: o imagine-copertă (poster) pentru card și pentru previzualizarea videoului.
+    // Pune-o în public/video/ și decomentează linia de mai jos:
+    poster: `${import.meta.env.BASE_URL}video/AnsamblulDorohoi.jpg`,
+  },
+    {
+    cat: 'concurs',
+    title: 'Concursul onli-ne de totalizare a obiceiurilor și tradițiilor de iarnă „Florile Dalbe ansamblul folcloric „Firicel de Busuioc”',
+    stage: 'Etapa IV · Ianuarie–Februarie 2026',
+    desc: 'Concursul onli-ne de totalizare a obiceiurilor și tradițiilor de iarnă „Florile Dalbe” — o competiție virtuală în care elevii au prezentat cunoștințele acumulate despre obiceiurile și tradițiile de iarnă, demonstrând creativitatea și spiritul de echipă.',
+    caption: '"Concursul onli-ne de totalizare a obiceiurilor și tradițiilor de iarnă „Florile Dalbe”"',
+    tag: 'Concurs',
+    // Video local: pune fișierul în folderul `public/video/` cu EXACT acest nume.
+    // (Fișierele din public/ NU se importă sus — se referă direct prin URL, ca aici.)
+    // Pentru a schimba videoul, înlocuiește fișierul sau modifică numele de mai jos.
+    video: `${import.meta.env.BASE_URL}video/AnsamblulChișinău.mp4`,
+    // Opțional: o imagine-copertă (poster) pentru card și pentru previzualizarea videoului.
+    // Pune-o în public/video/ și decomentează linia de mai jos:
+    poster: `${import.meta.env.BASE_URL}video/AnsamblulChișinău.jpg`,
   },
   {
     cat: 'concurs',
